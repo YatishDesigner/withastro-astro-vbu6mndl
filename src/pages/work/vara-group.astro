@@ -1,0 +1,290 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="Vara Group: Scaling SaaS | Yatish Shirsath">
+  
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    .reveal-on-scroll {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal-on-scroll.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .delay-100 { transition-delay: 100ms; }
+    .delay-200 { transition-delay: 200ms; }
+    .delay-300 { transition-delay: 300ms; }
+  </style>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
+
+    document.querySelectorAll('.reveal-on-scroll').forEach((el) => observer.observe(el));
+  </script>
+
+  <div class="fixed top-0 left-0 h-1 bg-blue-600 z-50 w-full scale-x-0 animate-[progress_1s_ease-out_forwards] origin-left"></div>
+
+  <header class="relative min-h-[90vh] flex flex-col justify-end p-6 md:p-12 overflow-hidden bg-slate-50">
+    <div class="absolute inset-0 z-0 opacity-10 grayscale mix-blend-multiply" 
+         style="background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop'); background-size: cover; background-position: center;">
+    </div>
+    
+    <div class="relative z-10 max-w-7xl mx-auto w-full reveal-on-scroll">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-8 border-b border-blue-900 pb-8 mb-8">
+        <div>
+          <span class="font-mono text-xs tracking-[0.2em] uppercase mb-4 block text-blue-600">Case Study 03 • SaaS Platform</span>
+          <h1 class="font-['Playfair_Display'] text-5xl md:text-8xl leading-[0.9] text-slate-900 italic">
+            Engineering<br/> <span class="not-italic font-bold">Efficiency.</span>
+          </h1>
+        </div>
+        <div class="max-w-md">
+          <p class="text-sm md:text-base leading-relaxed font-medium text-slate-600">
+            Digitizing the maintenance workflow for <span class="border-b border-blue-200">Highway Toll Operations</span>, replacing manual email loops with a real-time responsive ecosystem.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 font-mono text-xs uppercase tracking-widest reveal-on-scroll delay-200">
+        <div>
+          <span class="block text-slate-400 mb-1">Role</span>
+          <span class="text-slate-900 font-bold">Lead UX Designer</span>
+        </div>
+        <div>
+          <span class="block text-slate-400 mb-1">Impact</span>
+          <span class="text-slate-900 font-bold">100% Digital Adoption</span>
+        </div>
+        <div>
+          <span class="block text-slate-400 mb-1">Platform</span>
+          <span class="text-slate-900 font-bold">Responsive Web App</span>
+        </div>
+        <div>
+          <span class="block text-slate-400 mb-1">Timeline</span>
+          <span class="text-slate-900 font-bold">15 Weeks</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="py-24 px-6 bg-white">
+    <div class="max-w-6xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-16">
+        
+        <div class="md:col-span-4 md:sticky md:top-32 h-fit reveal-on-scroll">
+          <span class="font-mono text-xs text-blue-600 uppercase tracking-widest block mb-4">01 • The Problem</span>
+          <h2 class="font-['Playfair_Display'] text-4xl md:text-5xl leading-tight mb-6">
+            The "Offline"<br/> <span class="italic text-slate-400">Bottleneck.</span>
+          </h2>
+          <p class="text-slate-600 leading-relaxed mb-6">
+            Engineers were maintaining critical highway hardware using a slow, manual process. Data was trapped in silos, leading to delays in fix-times across different regions of India.
+          </p>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1 bg-slate-100 text-[10px] uppercase tracking-wider font-bold text-slate-600 rounded-full">Field Research</span>
+            <span class="px-3 py-1 bg-slate-100 text-[10px] uppercase tracking-wider font-bold text-slate-600 rounded-full">User Personas</span>
+          </div>
+        </div>
+
+        <div class="md:col-span-8 space-y-12">
+          
+          <div class="flex flex-col md:flex-row gap-6 border-t border-slate-100 pt-8 reveal-on-scroll delay-100">
+            <div class="w-12 text-2xl font-['Playfair_Display'] italic text-blue-500">A</div>
+            <div>
+              <h3 class="text-xl font-bold mb-2">The "Photo-to-Email" Lag</h3>
+              <p class="text-slate-600 text-sm mb-4 leading-relaxed">
+                <strong>The Workflow:</strong> Engineers took photos on site → Travelled back to office → Transferred to PC → Emailed Managers.
+                <br/><br/>
+                <strong>The Pain:</strong> This feedback loop took hours, sometimes days. If a photo was blurry or data missing, they had to physically return to the toll station.
+              </p>
+            </div>
+          </div>
+
+          <div class="flex flex-col md:flex-row gap-6 border-t border-slate-100 pt-8 reveal-on-scroll delay-200">
+            <div class="w-12 text-2xl font-['Playfair_Display'] italic text-blue-500">B</div>
+            <div>
+              <h3 class="text-xl font-bold mb-2">Managerial Blindspots</h3>
+              <p class="text-slate-600 text-sm mb-4 leading-relaxed">
+                <strong>The Issue:</strong> No real-time visibility.
+                <br/><br/>
+                <strong>The Pain:</strong> Managers were managing 100+ locations via Excel sheets. Assigning tasks was chaotic, and tracking "Open Tickets" vs "Resolved Tickets" was nearly impossible manually.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-24 px-6 bg-slate-900 text-white relative overflow-hidden">
+    <div class="absolute top-0 left-0 w-[600px] h-[600px] bg-blue-600/10 rounded-full blur-[120px] pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto relative z-10">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center reveal-on-scroll">
+        
+        <div>
+          <span class="font-mono text-xs text-blue-400 uppercase tracking-widest block mb-4">02 • Strategic Pivot</span>
+          <h2 class="font-['Playfair_Display'] text-4xl md:text-5xl leading-tight mb-6">
+            Agnostic <br/> <span class="italic text-blue-400">Accessibility.</span>
+          </h2>
+          <p class="text-slate-400 text-lg leading-relaxed mb-8">
+            <strong>The Dilemma:</strong> The client wanted a Native App, but budget and device diversity were constraints.
+            <br/><br/>
+            <strong>My Decision:</strong> I advocated for a <span class="text-white font-bold">Responsive Web Application (PWA)</span>. This ensured seamless access for field engineers on low-end Androids and managers on office Desktops, without the overhead of maintaining two codebases.
+          </p>
+          
+          <div class="grid grid-cols-2 gap-4">
+            <div class="p-4 border border-white/10 rounded bg-white/5">
+              <span class="block text-2xl font-bold text-white mb-1">100%</span>
+              <span class="text-[10px] uppercase tracking-widest text-slate-500">Device Coverage</span>
+            </div>
+            <div class="p-4 border border-white/10 rounded bg-white/5">
+              <span class="block text-2xl font-bold text-white mb-1">40%</span>
+              <span class="text-[10px] uppercase tracking-widest text-slate-500">Dev Time Saved</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="relative h-[400px] bg-slate-800 rounded-lg border border-slate-700 p-8 flex flex-col justify-center items-center shadow-2xl">
+           <div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 to-transparent"></div>
+           <div class="flex items-end gap-4 relative z-10">
+             <div class="w-16 h-24 bg-slate-600 rounded border border-slate-500 animate-pulse"></div> <div class="w-24 h-32 bg-slate-600 rounded border border-slate-500"></div> <div class="w-48 h-32 bg-slate-600 rounded border border-slate-500"></div> </div>
+           <p class="mt-8 text-xs font-mono text-blue-400">Write Once. Run Everywhere.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="py-32 px-6 bg-[#F5F7FA]">
+    <div class="max-w-7xl mx-auto">
+      
+      <div class="text-center mb-20 reveal-on-scroll">
+        <h2 class="font-['Playfair_Display'] text-5xl md:text-6xl mb-6">The Dual Ecosystem.</h2>
+        <p class="text-slate-500 max-w-xl mx-auto">Two distinct interfaces sharing one brain. Tailored for the specific context of the user.</p>
+      </div>
+
+      <div class="space-y-32">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center reveal-on-scroll delay-100">
+          
+          <div class="relative">
+             <div class="aspect-video bg-white rounded-xl shadow-xl border border-slate-200 p-2 flex items-center justify-center relative overflow-hidden group">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80" class="absolute inset-0 w-full h-full object-cover opacity-20 grayscale group-hover:grayscale-0 transition-all duration-500" />
+                <span class="relative z-10 text-slate-400 font-mono text-xs bg-white/80 px-4 py-2 rounded-full border border-slate-200">[Image: Mobile Activity Form UI]</span>
+             </div>
+          </div>
+
+          <div>
+            <span class="text-blue-600 font-bold text-xs tracking-widest uppercase mb-4 block">For The Field Engineer</span>
+            <h3 class="text-3xl font-bold text-slate-900 mb-6">Zero-Friction Reporting</h3>
+            <p class="text-slate-600 text-base leading-relaxed mb-8">
+              We stripped the UI down to the essentials. Large touch targets for "Before/After" uploads, auto-filled location data via GPS, and offline capabilities ensured engineers could file reports in seconds, right from the toll booth.
+            </p>
+            <ul class="space-y-4">
+              <li class="flex items-center gap-3 text-sm text-slate-600 font-medium">
+                <div class="w-2 h-2 bg-green-500 rounded-full"></div> Real-time Image Upload
+              </li>
+              <li class="flex items-center gap-3 text-sm text-slate-600 font-medium">
+                <div class="w-2 h-2 bg-green-500 rounded-full"></div> Geotagged Validation
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center reveal-on-scroll delay-200">
+          
+          <div class="order-2 lg:order-1">
+            <span class="text-blue-600 font-bold text-xs tracking-widest uppercase mb-4 block">For The Manager</span>
+            <h3 class="text-3xl font-bold text-slate-900 mb-6">The Command Center</h3>
+            <p class="text-slate-600 text-base leading-relaxed mb-8">
+              A comprehensive dashboard giving a bird's-eye view of all highway assets. Managers can approve jobs, assign tickets to specific engineers, and view "Location-wise" health status of hardware instantly.
+            </p>
+            <ul class="space-y-4">
+              <li class="flex items-center gap-3 text-sm text-slate-600 font-medium">
+                <div class="w-2 h-2 bg-blue-500 rounded-full"></div> One-Click Approvals
+              </li>
+              <li class="flex items-center gap-3 text-sm text-slate-600 font-medium">
+                <div class="w-2 h-2 bg-blue-500 rounded-full"></div> Asset Lifecycle Tracking
+              </li>
+            </ul>
+          </div>
+
+          <div class="order-1 lg:order-2 relative">
+             <div class="aspect-video bg-white rounded-xl shadow-xl border border-slate-200 p-2 flex items-center justify-center relative overflow-hidden group">
+                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80" class="absolute inset-0 w-full h-full object-cover opacity-20 grayscale group-hover:grayscale-0 transition-all duration-500" />
+                <span class="relative z-10 text-slate-400 font-mono text-xs bg-white/80 px-4 py-2 rounded-full border border-slate-200">[Image: Desktop Dashboard UI]</span>
+             </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="py-24 px-6 bg-white border-t border-slate-100">
+    <div class="max-w-6xl mx-auto">
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-16 reveal-on-scroll">
+        <div>
+          <span class="font-mono text-xs text-slate-400 uppercase tracking-widest block mb-6">04 • Process</span>
+          <h3 class="text-2xl font-['Playfair_Display'] italic mb-4">Crazy-8 to Code</h3>
+          <p class="text-slate-600 text-sm leading-relaxed mb-6">
+            We used <strong>"Crazy-8" brainstorming sessions</strong> to rapidly iterate on the dashboard layout. The goal was to fit complex data (MAC IDs, Status, Location) into a card view that didn't feel overwhelming.
+          </p>
+          <div class="p-4 bg-slate-50 border border-slate-100 rounded text-xs text-slate-500 italic">
+            "I learned the power of empathy in design—how understanding the daily workflow of engineers can lead to meaningful solutions."
+          </div>
+        </div>
+
+        <div>
+          <span class="font-mono text-xs text-slate-400 uppercase tracking-widest block mb-6">05 • Business Impact</span>
+          <ul class="space-y-6">
+            <li class="flex gap-4">
+              <span class="text-3xl font-bold text-blue-600">1</span>
+              <div>
+                <h4 class="font-bold text-slate-900">Reduced Turnaround Time</h4>
+                <p class="text-xs text-slate-500 mt-1">Real-time uploads eliminated the 24-hour reporting delay.</p>
+              </div>
+            </li>
+            <li class="flex gap-4">
+              <span class="text-3xl font-bold text-blue-600">2</span>
+              <div>
+                <h4 class="font-bold text-slate-900">Cost Efficiency</h4>
+                <p class="text-xs text-slate-500 mt-1">Building a PWA saved ~40% dev budget compared to native Android/iOS apps.</p>
+              </div>
+            </li>
+            <li class="flex gap-4">
+              <span class="text-3xl font-bold text-blue-600">3</span>
+              <div>
+                <h4 class="font-bold text-slate-900">Accountability</h4>
+                <p class="text-xs text-slate-500 mt-1">Geotagging features eliminated "fake visits," ensuring 100% compliance.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="py-32 bg-slate-900 text-white text-center">
+    <a href="/work/samoh" class="group inline-block">
+      <span class="font-mono text-xs text-blue-400 uppercase tracking-widest mb-4 block group-hover:text-white transition-colors">Read Next Case Study</span>
+      <h2 class="font-['Playfair_Display'] text-4xl md:text-6xl italic group-hover:underline decoration-1 underline-offset-8">
+        Samoh: <br/> Luxury E-commerce
+      </h2>
+    </a>
+  </div>
+
+</Layout>
