@@ -4,12 +4,44 @@ import Layout from '../../layouts/Layout.astro';
 
 <Layout title="Westside: The 500 Cr Scale | Yatish Shirsath">
   
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    .reveal-on-scroll {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal-on-scroll.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .delay-100 { transition-delay: 100ms; }
+    .delay-200 { transition-delay: 200ms; }
+    .delay-300 { transition-delay: 300ms; }
+  </style>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
+
+    document.querySelectorAll('.reveal-on-scroll').forEach((el) => observer.observe(el));
+  </script>
+
   <div class="fixed top-0 left-0 h-1 bg-black z-50 w-full scale-x-0 animate-[progress_1s_ease-out_forwards] origin-left"></div>
 
   <header class="relative min-h-[90vh] flex flex-col justify-end p-6 md:p-12 overflow-hidden bg-[#F5F5F3]">
-    <div class="absolute inset-0 z-0 opacity-10 grayscale" style="background-image: url('https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=2070&auto=format&fit=crop'); background-size: cover; background-position: center;"></div>
+    <div class="absolute inset-0 z-0 opacity-20 grayscale scale-105 animate-[subtle-zoom_20s_infinite_alternate]" 
+         style="background-image: url('https://images.unsplash.com/photo-1469334031218-e382a71b716b?q=80&w=2070&auto=format&fit=crop'); background-size: cover; background-position: center;">
+    </div>
     
-    <div class="relative z-10 max-w-7xl mx-auto w-full">
+    <div class="relative z-10 max-w-7xl mx-auto w-full reveal-on-scroll">
       <div class="flex flex-col md:flex-row md:items-end justify-between gap-8 border-b border-black pb-8 mb-8">
         <div>
           <span class="font-mono text-xs tracking-[0.2em] uppercase mb-4 block text-gray-500">Case Study 01 • TATA Enterprise</span>
@@ -19,12 +51,12 @@ import Layout from '../../layouts/Layout.astro';
         </div>
         <div class="max-w-md">
           <p class="text-sm md:text-base leading-relaxed font-medium text-gray-800">
-            Orchestrating the UX strategy—from <span class="border-b border-black">gamified carts</span> to <span class="border-b border-black">luxury microsites</span>—to fuel Westside's journey toward the <strong>500 Cr Revenue Milestone</strong>.
+            Orchestrating the UX strategy - from <span class="border-b border-black">gamified carts</span> to <span class="border-b border-black">luxury microsites</span> - to fuel Westside's journey toward the <strong>500 Cr Revenue Milestone</strong>.
           </p>
         </div>
       </div>
 
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 font-mono text-xs uppercase tracking-widest">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 font-mono text-xs uppercase tracking-widest reveal-on-scroll delay-200">
         <div>
           <span class="block text-gray-400 mb-1">Role</span>
           <span class="text-black font-bold">Design Manager</span>
@@ -39,7 +71,7 @@ import Layout from '../../layouts/Layout.astro';
         </div>
         <div>
           <span class="block text-gray-400 mb-1">Year</span>
-          <span class="text-black font-bold">2024-25</span>
+          <span class="text-black font-bold">2025-26</span>
         </div>
       </div>
     </div>
@@ -49,52 +81,61 @@ import Layout from '../../layouts/Layout.astro';
     <div class="max-w-6xl mx-auto">
       <div class="grid grid-cols-1 md:grid-cols-12 gap-16">
         
-        <div class="md:col-span-4 md:sticky md:top-32 h-fit">
+        <div class="md:col-span-4 md:sticky md:top-32 h-fit reveal-on-scroll">
           <span class="font-mono text-xs text-red-600 uppercase tracking-widest block mb-4">01 • The Diagnosis</span>
           <h2 class="font-['Playfair_Display'] text-4xl md:text-5xl leading-tight mb-6">
-            Forensic<br/> <span class="italic text-gray-400">Analysis.</span>
+            Forensic<br/> <span class="italic text-gray-400">Audit.</span>
           </h2>
           <p class="text-gray-600 leading-relaxed mb-6">
-            We didn't guess. We audited. Using <strong>Microsoft Clarity heatmaps</strong>, <strong>Shopify Analytics</strong>, and over 500+ <strong>Play Store reviews</strong>, we identified the specific friction points bleeding revenue.
+            We didn't just look at UI; we audited the logic. Using <strong>Microsoft Clarity heatmaps</strong>, <strong>Shopify & Google Analytics</strong>, and over 100+ <strong>Play Store  & App store reviews with User testing</strong>, we identified the specific friction points bleeding revenue.
           </p>
           <div class="flex flex-wrap gap-2">
             <span class="px-3 py-1 bg-gray-100 text-[10px] uppercase tracking-wider font-bold text-gray-600 rounded-full">MS Clarity</span>
             <span class="px-3 py-1 bg-gray-100 text-[10px] uppercase tracking-wider font-bold text-gray-600 rounded-full">GA4</span>
-            <span class="px-3 py-1 bg-gray-100 text-[10px] uppercase tracking-wider font-bold text-gray-600 rounded-full">Heuristic Eval</span>
+            <span class="px-3 py-1 bg-gray-100 text-[10px] uppercase tracking-wider font-bold text-gray-600 rounded-full">QC Logs</span>
           </div>
         </div>
 
         <div class="md:col-span-8 space-y-12">
           
-          <div class="flex flex-col md:flex-row gap-6 border-t border-gray-100 pt-8">
+          <div class="flex flex-col md:flex-row gap-6 border-t border-gray-100 pt-8 reveal-on-scroll delay-100">
             <div class="w-12 text-2xl font-['Playfair_Display'] italic text-red-500">A</div>
             <div>
-              <h3 class="text-xl font-bold mb-2">Information Overload & Scroll Fatigue</h3>
-              <p class="text-gray-600 text-sm mb-4">
-                Heatmaps showed users dropping off after the 3rd horizontal scroll on banner carousels. There was no clear engagement path, just visual noise.
+              <h3 class="text-xl font-bold mb-2">Discovery Paralysis & Search Failure</h3>
+              <p class="text-gray-600 text-sm mb-4 leading-relaxed">
+                <strong>The Issue:</strong> High bounce rates on the homepage due to information overload, non-predictive search, and cluttered navigation.
+                <br/><br/>
+                <strong>The Friction:</strong> Filter lags and poor tap zones on mobile made product listing pages (PLP) unusable. Users were overwhelmed by visual noise with no clear engagement paths.
               </p>
-              <div class="bg-gray-100 aspect-[2/1] rounded-lg flex items-center justify-center text-gray-400 text-xs font-mono">
-                [Snapshot: Homepage Heatmap showing drop-offs]
+              <div class="bg-gray-100 aspect-[2/1] rounded-lg overflow-hidden relative shadow-inner group">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80" alt="Old Interface Data" class="object-cover w-full h-full opacity-60 grayscale group-hover:grayscale-0 transition-all duration-500">
+                <div class="absolute inset-0 flex items-center justify-center text-black font-mono text-xs bg-white/30 backdrop-blur-sm">
+                  [Snapshot: Old Search Friction]
+                </div>
               </div>
             </div>
           </div>
 
-          <div class="flex flex-col md:flex-row gap-6 border-t border-gray-100 pt-8">
+          <div class="flex flex-col md:flex-row gap-6 border-t border-gray-100 pt-8 reveal-on-scroll delay-200">
             <div class="w-12 text-2xl font-['Playfair_Display'] italic text-red-500">B</div>
             <div>
-              <h3 class="text-xl font-bold mb-2">The "Guest" Dead-End</h3>
-              <p class="text-gray-600 text-sm mb-4">
-                Analytics revealed high bounce rates at checkout for guest users. The lack of login incentives was costing us not just sales, but valuable customer data.
+              <h3 class="text-xl font-bold mb-2">Critical Logic Gaps (Cart & MOV)</h3>
+              <p class="text-gray-600 text-sm mb-4 leading-relaxed">
+                <strong>The Issue:</strong> Trust erosion due to "Late Communication."
+                <br/><br/>
+                <strong>The Friction:</strong> Users were only told about the Minimum Order Value (MOV) <em>after</em> reaching checkout, causing rage-quits. Combined with critical cart management bugs, the "Add-to-Cart" rate was suffering.
               </p>
             </div>
           </div>
 
-          <div class="flex flex-col md:flex-row gap-6 border-t border-gray-100 pt-8">
+          <div class="flex flex-col md:flex-row gap-6 border-t border-gray-100 pt-8 reveal-on-scroll delay-300">
             <div class="w-12 text-2xl font-['Playfair_Display'] italic text-red-500">C</div>
             <div>
-              <h3 class="text-xl font-bold mb-2">Search Failure</h3>
-              <p class="text-gray-600 text-sm">
-                Users searching for "Red Kurta" were getting generic results. The lack of AI-driven context was leading to "0 results" frustration.
+              <h3 class="text-xl font-bold mb-2">The Checkout Dead-End</h3>
+              <p class="text-gray-600 text-sm leading-relaxed">
+                <strong>The Issue:</strong> High cognitive load and invisible CTAs.
+                <br/><br/>
+                <strong>The Friction:</strong> The checkout flow was a literal dead-end with broken navigation logic. Post-purchase, refund and order tracking systems were buried, driving up support tickets. We needed to fix the flow from "Payment" to "Refund."
               </p>
             </div>
           </div>
@@ -106,49 +147,60 @@ import Layout from '../../layouts/Layout.astro';
 
   <section class="py-24 px-6 bg-[#F9F9F9]">
     <div class="max-w-7xl mx-auto">
-      <div class="mb-16 max-w-2xl">
+      <div class="mb-16 max-w-2xl reveal-on-scroll">
         <span class="font-mono text-xs text-blue-600 uppercase tracking-widest block mb-4">02 • The Strategy</span>
         <h2 class="font-['Playfair_Display'] text-4xl md:text-5xl leading-tight mb-6">
           Designing for <span class="italic text-blue-600">Revenue.</span>
         </h2>
         <p class="text-gray-600 text-lg">
-          We moved beyond "making it pretty" to "making it perform." We implemented specific psychological triggers and functional upgrades to boost Average Order Value (AOV).
+          We moved beyond "making it pretty" to "making it perform." We implemented specific psychological triggers and functional upgrades to boost Average Order Value (AOV) and conversion rates.
         </p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         
-        <div class="md:row-span-2 bg-white p-8 border border-gray-200 hover:shadow-xl transition-shadow duration-500 group">
+        <div class="md:row-span-2 bg-white p-8 border border-gray-200 hover:shadow-xl transition-all duration-500 group reveal-on-scroll delay-100">
           <div class="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center text-blue-600 mb-6 group-hover:scale-110 transition-transform">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
           </div>
           <h3 class="text-2xl font-['Playfair_Display'] font-bold mb-4">Gamifying the Cart</h3>
           <p class="text-gray-600 text-sm leading-relaxed mb-6">
-            To increase AOV, we introduced a progress bar in the cart: <em>"Add ₹900 more for free shipping."</em> This simple gamification nudge significantly lifted basket sizes.
+            To increase AOV, we introduced a progress bar in the cart: <em>"Shop for ₹X more to proceed."</em> This simple gamification nudge significantly lifted basket sizes and reduced MOV friction.
           </p>
-          <div class="bg-gray-100 aspect-square rounded-sm flex items-center justify-center text-gray-400 text-xs font-mono">
-            [Image: Cart Progress Bar UI]
+          <div class="bg-gray-100 aspect-square rounded-sm overflow-hidden relative group-hover:opacity-90 transition-opacity">
+             <img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?auto=format&fit=crop&q=80" alt="Cart UI" class="object-cover w-full h-full opacity-80" />
+             <div class="absolute inset-0 flex items-center justify-center bg-white/80 backdrop-blur-sm m-4 rounded">
+                <div class="w-3/4">
+                    <div class="h-2 bg-gray-200 rounded-full mb-2"><div class="w-3/4 h-full bg-blue-600 rounded-full"></div></div>
+                    <p class="text-[10px] text-center text-blue-600 font-bold">Add ₹300 for Free Shipping</p>
+                </div>
+             </div>
           </div>
         </div>
 
-        <div class="bg-white p-8 border border-gray-200 hover:shadow-xl transition-shadow duration-500">
+        <div class="bg-white p-8 border border-gray-200 hover:shadow-xl transition-all duration-500 reveal-on-scroll delay-200">
           <h3 class="text-xl font-bold mb-2">Guest -> Member</h3>
           <p class="text-gray-600 text-xs mb-4">
             Strategically placed login prompts with "Member Price" incentives converted guest users into registered database entries.
           </p>
-          <div class="bg-gray-100 h-32 rounded-sm flex items-center justify-center text-gray-400 text-xs font-mono">
-            [Image: Login Prompt Modal]
+          <div class="bg-gray-100 h-32 rounded-sm overflow-hidden relative">
+             <img src="https://images.unsplash.com/photo-1616469829581-73993eb86b02?auto=format&fit=crop&q=80" alt="Login UI" class="object-cover w-full h-full opacity-50" />
           </div>
         </div>
 
-        <div class="bg-white p-8 border border-gray-200 hover:shadow-xl transition-shadow duration-500">
-          <h3 class="text-xl font-bold mb-2">AI-Powered Search</h3>
-          <p class="text-gray-600 text-xs mb-4">
-            Replaced the legacy search with an AI engine that understands intent (e.g., "Party wear for kids") rather than just keywords.
+        <div class="bg-white p-8 border border-gray-200 hover:shadow-xl transition-all duration-500 reveal-on-scroll delay-300">
+          <h3 class="text-xl font-bold mb-3">Core Funnel Revamp</h3>
+          <p class="text-gray-600 text-xs mb-4 leading-relaxed">
+            We overhauled the entire purchase path. Visual navigation replaced text links, PLPs got cleaner filters, PDPs highlighted sizing, and Checkout was streamlined to 3 steps.
           </p>
+          <div class="flex gap-2 flex-wrap">
+             <span class="text-[10px] bg-gray-100 px-2 py-1 rounded text-gray-500">Product Discovery</span>
+             <span class="text-[10px] bg-gray-100 px-2 py-1 rounded text-gray-500">Listing & Details</span>
+             <span class="text-[10px] bg-gray-100 px-2 py-1 rounded text-gray-500">Post Purchase</span>
+          </div>
         </div>
 
-        <div class="md:col-span-2 bg-slate-900 text-white p-8 flex flex-col md:flex-row gap-8 items-center overflow-hidden relative">
+        <div class="md:col-span-2 bg-slate-900 text-white p-8 flex flex-col md:flex-row gap-8 items-center overflow-hidden relative reveal-on-scroll delay-200">
           <div class="absolute top-0 right-0 w-64 h-64 bg-yellow-500 rounded-full blur-[80px] opacity-20"></div>
           <div class="flex-1 relative z-10">
             <span class="text-yellow-400 text-xs font-bold tracking-widest uppercase mb-2 block">Loyalty Revamp</span>
@@ -157,8 +209,8 @@ import Layout from '../../layouts/Layout.astro';
               We redesigned the coupon experience. Instead of hiding codes, we made them "Opt-in" with one tap. This transparency built trust and increased redemption rates.
             </p>
           </div>
-          <div class="w-full md:w-1/3 aspect-video bg-white/10 rounded-sm flex items-center justify-center text-white/30 text-xs font-mono">
-            [Image: WSC Dashboard]
+          <div class="w-full md:w-1/3 aspect-video bg-white/10 rounded-sm overflow-hidden relative border border-white/10">
+             <img src="https://images.unsplash.com/photo-1556742049-0cfed4f7a07d?auto=format&fit=crop&q=80" alt="WSC Dashboard" class="object-cover w-full h-full opacity-40 mix-blend-luminosity" />
           </div>
         </div>
 
@@ -170,55 +222,76 @@ import Layout from '../../layouts/Layout.astro';
     <div class="absolute bottom-0 left-0 w-[600px] h-[600px] bg-purple-900/20 rounded-full blur-[120px] pointer-events-none"></div>
 
     <div class="max-w-7xl mx-auto px-6 relative z-10">
-      <div class="text-center mb-20">
-        <span class="inline-block border border-white/20 px-4 py-1 rounded-full text-xs tracking-[0.2em] uppercase mb-6 text-white/60">Expansion Strategy</span>
-        <h2 class="font-['Playfair_Display'] text-5xl md:text-7xl mb-6">The Luxury Pivot.</h2>
-        <p class="max-w-2xl mx-auto text-white/60 text-lg font-light leading-relaxed">
-          Westside isn't just mass market anymore. We designed distinct, elevated digital identities for three new premium segments.
-        </p>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-16 mb-24 items-end reveal-on-scroll">
+        <div>
+          <span class="inline-block border border-white/20 px-4 py-1 rounded-full text-xs tracking-[0.2em] uppercase mb-6 text-white/60">Expansion Strategy</span>
+          <h2 class="font-['Playfair_Display'] text-5xl md:text-7xl mb-6">
+            The Luxury <br/> <span class="italic text-purple-300">Expansion.</span>
+          </h2>
+        </div>
+        <div>
+          <p class="text-white/70 text-lg font-light leading-relaxed mb-6">
+            Westside needed a home for its premium labels (Samoh, Pome) without cluttering the mass-market interface.
+          </p>
+          <div class="p-6 border-l border-white/20 bg-white/5 backdrop-blur-sm">
+            <h4 class="text-sm font-bold text-white uppercase tracking-widest mb-2">The UI Solution: "The Portal"</h4>
+            <p class="text-sm text-white/60">
+              We architected a <strong>"Store-within-a-Store"</strong> accessible via a dedicated <span class="text-white">Bottom Drawer Toggle</span>. This micro-interaction acts as a portal, triggering a sophisticated transition animation that switches the entire app context-fonts, colors, and layout-to "Luxury Mode."
+            </p>
+          </div>
+        </div>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
         
-        <div class="group cursor-default">
-          <div class="aspect-[4/5] bg-white/5 border border-white/10 p-4 mb-6 relative overflow-hidden">
-             <div class="absolute inset-0 bg-gradient-to-b from-transparent to-black/80 opacity-60"></div>
-             <div class="absolute bottom-4 left-4">
-                <p class="text-xs tracking-widest text-white/70 uppercase">Fine Jewellery</p>
-                <h3 class="text-3xl font-['Playfair_Display'] italic">Whitedoor</h3>
+        <div class="group cursor-default reveal-on-scroll delay-100">
+          <div class="aspect-[4/5] bg-white/5 border border-white/10 p-4 mb-6 relative overflow-hidden transition-all duration-700 hover:border-white/30 hover:-translate-y-2">
+             <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&q=80" alt="Whitedoor Jewelry" class="absolute inset-0 w-full h-full object-cover opacity-60 grayscale group-hover:grayscale-0 transition-all duration-700" />
+             <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
+             
+             <div class="absolute bottom-0 left-0 w-full h-16 bg-white text-black flex items-center justify-between px-6 z-10">
+                <span class="text-xs font-bold tracking-widest">WESTSIDE</span>
+                <div class="px-4 py-2 border border-black rounded-full text-xs font-bold">WHITEDOOR</div>
              </div>
-             <div class="w-full h-full flex items-center justify-center text-xs tracking-widest text-white/20 font-mono">[Image: Whitedoor UI]</div>
+             <div class="w-full h-full flex flex-col items-center justify-center text-center relative z-10">
+                <span class="font-['Playfair_Display'] text-4xl italic mb-2">Whitedoor</span>
+                <span class="text-[10px] uppercase tracking-[0.3em] text-white/50">The Ecosystem</span>
+             </div>
           </div>
-          <p class="text-sm text-white/50 leading-relaxed border-l border-white/20 pl-4">
-            Lab-grown diamonds. The UI focused on "Sparkle" using high-contrast dark modes and macro photography layouts.
+          <h3 class="text-xl font-bold mb-2">The Architecture</h3>
+          <p class="text-sm text-white/50 leading-relaxed">
+            Designed the parent ecosystem "Whitedoor" to house multiple luxury verticals. The UI removes the clutter of standard e-commerce, using negative space to let the premium products breathe.
           </p>
         </div>
 
-        <div class="group cursor-default md:mt-16">
-          <div class="aspect-[4/5] bg-white/5 border border-white/10 p-4 mb-6 relative overflow-hidden">
-             <div class="absolute inset-0 bg-gradient-to-b from-transparent to-black/80 opacity-60"></div>
-             <div class="absolute bottom-4 left-4">
-                <p class="text-xs tracking-widest text-white/70 uppercase">Luxury Bags</p>
+        <div class="group cursor-default md:mt-16 reveal-on-scroll delay-200">
+          <div class="aspect-[4/5] bg-white/5 border border-white/10 p-4 mb-6 relative overflow-hidden transition-all duration-700 hover:border-white/30 hover:-translate-y-2">
+             <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&q=80" alt="Pome Bags" class="absolute inset-0 w-full h-full object-cover opacity-60 grayscale group-hover:grayscale-0 transition-all duration-700" />
+             <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
+             <div class="absolute bottom-6 left-6 relative z-10">
                 <h3 class="text-3xl font-['Playfair_Display'] italic">Pome</h3>
+                <p class="text-xs tracking-widest text-white/70 uppercase mt-1">Fine Jewellery & Bags</p>
              </div>
-             <div class="w-full h-full flex items-center justify-center text-xs tracking-widest text-white/20 font-mono">[Image: Pome UI]</div>
           </div>
-          <p class="text-sm text-white/50 leading-relaxed border-l border-white/20 pl-4">
-            Positioned as accessible luxury. We utilized video backgrounds and 360-degree product views to mimic the in-store feel.
+          <h3 class="text-xl font-bold mb-2">Pome: Visual Storytelling</h3>
+          <p class="text-sm text-white/50 leading-relaxed">
+            For the <strong>Pome Category Landing Page</strong>, we moved away from grids. We used editorial-style "Lookbook" layouts with macro photography and subtle scroll-triggered animations to mimic the reflection of diamonds.
           </p>
         </div>
 
-        <div class="group cursor-default">
-          <div class="aspect-[4/5] bg-white/5 border border-white/10 p-4 mb-6 relative overflow-hidden">
-             <div class="absolute inset-0 bg-gradient-to-b from-transparent to-black/80 opacity-60"></div>
-             <div class="absolute bottom-4 left-4">
-                <p class="text-xs tracking-widest text-white/70 uppercase">Premium Apparel (>10k)</p>
+        <div class="group cursor-default reveal-on-scroll delay-300">
+          <div class="aspect-[4/5] bg-white/5 border border-white/10 p-4 mb-6 relative overflow-hidden transition-all duration-700 hover:border-white/30 hover:-translate-y-2">
+             <img src="https://images.unsplash.com/photo-1576566588028-4147f3842f27?auto=format&fit=crop&q=80" alt="Samoh Fabric" class="absolute inset-0 w-full h-full object-cover opacity-60 grayscale group-hover:grayscale-0 transition-all duration-700" />
+             <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
+             <div class="absolute bottom-6 left-6 relative z-10">
                 <h3 class="text-3xl font-['Playfair_Display'] italic">Samoh</h3>
+                <p class="text-xs tracking-widest text-white/70 uppercase mt-1">Apparel > ₹10k</p>
              </div>
-             <div class="w-full h-full flex items-center justify-center text-xs tracking-widest text-white/20 font-mono">[Image: Samoh UI]</div>
           </div>
-          <p class="text-sm text-white/50 leading-relaxed border-l border-white/20 pl-4">
-            A brand for special occasions. The UX prioritized "Look the Look" functionality and rich fabric storytelling.
+          <h3 class="text-xl font-bold mb-2">Samoh: Strategic Integration</h3>
+          <p class="text-sm text-white/50 leading-relaxed">
+            Strategically integrated Samoh’s standalone premium catalogue into the Whitedoor ecosystem, allowing Westside users seamless access to high-value occasion wear without leaving the app.
           </p>
         </div>
 
@@ -226,12 +299,12 @@ import Layout from '../../layouts/Layout.astro';
     </div>
   </section>
 
-  <section class="py-24 px-6 bg-white">
+  <section class="py-24 px-6 bg-white border-t border-gray-100">
     <div class="max-w-6xl mx-auto">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
         
-        <div>
-          <span class="font-mono text-xs text-indigo-600 uppercase tracking-widest block mb-4">03 • Execution</span>
+        <div class="reveal-on-scroll">
+          <span class="font-mono text-xs text-indigo-600 uppercase tracking-widest block mb-4">04 • Execution</span>
           <h2 class="font-bold text-3xl md:text-4xl mb-6 leading-tight">
             Bridging the <br/> Technical Gap.
           </h2>
@@ -243,12 +316,12 @@ import Layout from '../../layouts/Layout.astro';
             <li class="relative pl-8 border-l-2 border-gray-100">
               <span class="absolute -left-[9px] top-0 w-4 h-4 bg-indigo-600 rounded-full"></span>
               <h4 class="font-bold text-gray-900">Code as a Deliverable</h4>
-              <p class="text-sm text-gray-500 mt-2">I didn't just send PNGs. I wrote and handed off HTML/CSS snippets for complex interactions, ensuring the live site matched the Figma pixel-perfectly.</p>
+              <p class="text-sm text-gray-500 mt-2">I didn't just send PNGs. I wrote and handed off HTML/CSS and react snippets for complex interactions, ensuring the live site matched the Figma pixel-perfectly.</p>
             </li>
             <li class="relative pl-8 border-l-2 border-gray-100">
               <span class="absolute -left-[9px] top-0 w-4 h-4 bg-gray-300 rounded-full"></span>
               <h4 class="font-bold text-gray-900">Rigorous QC Rituals</h4>
-              <p class="text-sm text-gray-500 mt-2">Instituted a "Design QC" phase before UAT. We logged bugs in trackers and sat with developers weekly to resolve them, prioritizing function over form.</p>
+              <p class="text-sm text-gray-500 mt-2">Instituted a "Weekly Design QC" phase. We logged bugs in trackers and sat with developers weekly to resolve them, prioritizing function over form.</p>
             </li>
             <li class="relative pl-8 border-l-2 border-gray-100">
               <span class="absolute -left-[9px] top-0 w-4 h-4 bg-gray-300 rounded-full"></span>
@@ -258,19 +331,21 @@ import Layout from '../../layouts/Layout.astro';
           </ul>
         </div>
 
-        <div class="relative">
-          <div class="bg-[#1e1e1e] p-6 rounded-lg shadow-2xl rotate-2 hover:rotate-0 transition-transform duration-500">
+        <div class="relative reveal-on-scroll delay-200">
+          <div class="bg-[#1e1e1e] p-6 rounded-lg shadow-2xl rotate-2 hover:rotate-0 transition-transform duration-500 overflow-hidden relative">
+            <div class="absolute inset-0 bg-gradient-to-br from-indigo-900/20 to-purple-900/20 pointer-events-none"></div>
+            
             <div class="flex gap-2 mb-4">
               <div class="w-3 h-3 rounded-full bg-red-500"></div>
               <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
               <div class="w-3 h-3 rounded-full bg-green-500"></div>
             </div>
-            <code class="text-xs font-mono text-gray-400">
+            <code class="text-xs font-mono text-gray-400 block relative z-10">
               <span class="text-purple-400">.westside-card</span> &#123;<br/>
               &nbsp;&nbsp;display: <span class="text-yellow-300">grid</span>;<br/>
               &nbsp;&nbsp;grid-template-columns: <span class="text-blue-300">repeat(auto-fit, minmax(200px, 1fr))</span>;<br/>
               &nbsp;&nbsp;gap: <span class="text-green-300">1.5rem</span>;<br/>
-              &#125;<br/>
+              &#125;<br/><br/>
               <span class="text-gray-500">// I provided code to ensure grid responsiveness worked perfectly.</span>
             </code>
           </div>
@@ -284,55 +359,55 @@ import Layout from '../../layouts/Layout.astro';
     </div>
   </section>
 
-  <section class="py-24 px-6 bg-[#F5F5F3] border-t border-gray-200">
-    <div class="max-w-7xl mx-auto">
-      
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-24 text-center md:text-left">
-        <div class="md:col-span-1">
-          <span class="font-mono text-xs text-black uppercase tracking-widest block mb-2">The Goal</span>
-          <h3 class="text-4xl font-['Playfair_Display'] font-bold">500 Cr</h3>
-          <p class="text-sm text-gray-500 mt-2">Fueling the Revenue Roadmap</p>
-        </div>
-        <div class="md:col-span-1">
-          <span class="font-mono text-xs text-black uppercase tracking-widest block mb-2">The Team</span>
-          <h3 class="text-4xl font-['Playfair_Display'] font-bold">04</h3>
-          <p class="text-sm text-gray-500 mt-2">Designers Mentored</p>
-        </div>
-        <div class="md:col-span-1">
-          <span class="font-mono text-xs text-black uppercase tracking-widest block mb-2">Stakeholders</span>
-          <h3 class="text-4xl font-['Playfair_Display'] font-bold">07+</h3>
-          <p class="text-sm text-gray-500 mt-2">Teams Aligned (IT, PWC, Mkt)</p>
-        </div>
-        <div class="md:col-span-1">
-          <span class="font-mono text-xs text-black uppercase tracking-widest block mb-2">Expansion</span>
-          <h3 class="text-4xl font-['Playfair_Display'] font-bold">03</h3>
-          <p class="text-sm text-gray-500 mt-2">New Brands Launched</p>
-        </div>
+  <section class="py-24 px-6 bg-[#F5F5F3]">
+    <div class="max-w-6xl mx-auto reveal-on-scroll">
+      <div class="text-center mb-16">
+        <span class="font-mono text-xs text-black uppercase tracking-widest block mb-4">05 • Business Impact</span>
+        <h2 class="font-['Playfair_Display'] text-4xl md:text-5xl leading-tight">
+          Fueling the<br/> Revenue Engine.
+        </h2>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-12 gap-12 border-t border-gray-300 pt-16">
-        <div class="md:col-span-4">
-          <h3 class="text-3xl font-['Playfair_Display'] italic mb-6">Reflections &<br/> Leadership.</h3>
-          <p class="text-gray-600 mb-6">
-            Leading design at Westside wasn't just about UI; it was about organizational change management.
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-12 text-center">
+        <div class="p-6 border-r border-gray-300 last:border-0 md:last:border-0 border-b md:border-b-0">
+          <span class="block text-5xl md:text-6xl font-['Playfair_Display'] font-bold text-black mb-2">500<span class="text-2xl">Cr</span></span>
+          <p class="text-xs uppercase tracking-widest text-gray-500 mt-4">Revenue Goal Roadmap</p>
+        </div>
+        <div class="p-6 border-r border-gray-300 last:border-0 md:last:border-0 border-b md:border-b-0">
+          <span class="block text-5xl md:text-6xl font-['Playfair_Display'] font-bold text-black mb-2">40<span class="text-2xl">%</span></span>
+          <p class="text-xs uppercase tracking-widest text-gray-500 mt-4">Drop in Support Tickets</p>
+        </div>
+        <div class="p-6 border-r border-gray-300 last:border-0 md:last:border-0">
+          <span class="block text-5xl md:text-6xl font-['Playfair_Display'] font-bold text-black mb-2">03</span>
+          <p class="text-xs uppercase tracking-widest text-gray-500 mt-4">New Brands Launched</p>
+        </div>
+        <div class="p-6">
+          <span class="block text-5xl md:text-6xl font-['Playfair_Display'] font-bold text-black mb-2">100<span class="text-2xl">%</span></span>
+          <p class="text-xs uppercase tracking-widest text-gray-500 mt-4">Stakeholder Buy-in'</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-24 px-6 bg-white border-t border-gray-100">
+    <div class="max-w-4xl mx-auto reveal-on-scroll">
+      <span class="font-mono text-xs text-gray-400 uppercase tracking-widest block mb-8">06 • Leadership Reflections</span>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <div>
+          <h3 class="text-2xl font-['Playfair_Display'] italic mb-4">Orchestrating the "Village"</h3>
+          <p class="text-gray-600 text-sm leading-relaxed">
+            Delivering at this scale required aligning diverse stakeholders - Brand, Marketing, Customer Communication, and our vendor partners. My role shifted from "creator" to "diplomat," ensuring design intent survived the boardrooms and development tickets.
           </p>
         </div>
         
-        <div class="md:col-span-4">
-          <h4 class="font-bold text-lg mb-4">Orchestrating the "Village"</h4>
-          <p class="text-sm text-gray-600 leading-relaxed mb-6">
-            Delivering at this scale required aligning diverse stakeholders—Brand, Marketing, Customer Communication, and our vendor partners at <strong>PWC</strong>. My role shifted from "creator" to "diplomat," ensuring design intent survived the boardrooms and Jira tickets.
-          </p>
-        </div>
-
-        <div class="md:col-span-4">
-          <h4 class="font-bold text-lg mb-4">Mentorship as a Multiplier</h4>
-          <p class="text-sm text-gray-600 leading-relaxed mb-6">
-            Managing a team of 4 designers taught me that my output is no longer my pixels, but *their* growth. By setting up design systems and clear BRD processes, I empowered them to own verticals like Whitedoor and Pome independently.
+        <div>
+          <h3 class="text-2xl font-['Playfair_Display'] italic mb-4">Mentorship as a Multiplier</h3>
+          <p class="text-gray-600 text-sm leading-relaxed">
+            Managing a team of 4 designers taught me that my output is no longer my pixels, but *our teams collective* growth. By setting up design systems and clear BRD processes, I empowered our team to own impact verticals independently.
           </p>
         </div>
       </div>
-
     </div>
   </section>
 
