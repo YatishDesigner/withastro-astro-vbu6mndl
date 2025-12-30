@@ -1,0 +1,287 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="Samoh: 0-to-1 Luxury Launch | Yatish Shirsath">
+  
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    .reveal-on-scroll {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal-on-scroll.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .delay-100 { transition-delay: 100ms; }
+    .delay-200 { transition-delay: 200ms; }
+    .delay-300 { transition-delay: 300ms; }
+  </style>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
+
+    document.querySelectorAll('.reveal-on-scroll').forEach((el) => observer.observe(el));
+  </script>
+
+  <div class="fixed top-0 left-0 h-1 bg-yellow-600 z-50 w-full scale-x-0 animate-[progress_1s_ease-out_forwards] origin-left"></div>
+
+  <header class="relative min-h-[90vh] flex flex-col justify-end p-6 md:p-12 overflow-hidden bg-neutral-900">
+    <div class="absolute inset-0 z-0 opacity-50" 
+         style="background-image: url('https://images.unsplash.com/photo-1565126867375-408a202dc763?q=80&w=2070&auto=format&fit=crop'); background-size: cover; background-position: center;">
+    </div>
+    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent z-0"></div>
+    
+    <div class="relative z-10 max-w-7xl mx-auto w-full reveal-on-scroll text-white">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-8 border-b border-yellow-700/50 pb-8 mb-8">
+        <div>
+          <span class="font-mono text-xs tracking-[0.2em] uppercase mb-4 block text-yellow-500">Case Study 04 • 0-to-1 Launch</span>
+          <h1 class="font-['Playfair_Display'] text-5xl md:text-8xl leading-[0.9] italic text-white">
+            The Digital<br/> <span class="not-italic font-bold text-yellow-500">Atelier.</span>
+          </h1>
+        </div>
+        <div class="max-w-md">
+          <p class="text-sm md:text-base leading-relaxed font-medium text-gray-300">
+            Building a luxury ethnic wear brand from scratch. From the first whiteboard session to the <span class="text-white border-b border-white">first live transaction</span>.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 font-mono text-xs uppercase tracking-widest reveal-on-scroll delay-200">
+        <div>
+          <span class="block text-gray-500 mb-1">Role</span>
+          <span class="text-white font-bold">Principal Designer</span>
+        </div>
+        <div>
+          <span class="block text-gray-500 mb-1">Scope</span>
+          <span class="text-white font-bold">End-to-End (0 to 1)</span>
+        </div>
+        <div>
+          <span class="block text-gray-500 mb-1">Platform</span>
+          <span class="text-white font-bold">Shopify Plus</span>
+        </div>
+        <div>
+          <span class="block text-gray-500 mb-1">Status</span>
+          <span class="text-white font-bold">Live & Revenue Generating</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="py-24 px-6 bg-white">
+    <div class="max-w-6xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-16">
+        
+        <div class="md:col-span-4 md:sticky md:top-32 h-fit reveal-on-scroll">
+          <span class="font-mono text-xs text-yellow-600 uppercase tracking-widest block mb-4">01 • The Genesis</span>
+          <h2 class="font-['Playfair_Display'] text-4xl md:text-5xl leading-tight mb-6">
+            Translating<br/> <span class="italic text-gray-400">Vision.</span>
+          </h2>
+          <p class="text-gray-600 leading-relaxed mb-6">
+            The business vision was clear: "Modern Indian Luxury." My challenge was to translate this abstract concept into a functional, conversion-optimized digital product.
+          </p>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1 bg-gray-100 text-[10px] uppercase tracking-wider font-bold text-gray-600 rounded-full">Stakeholder Workshops</span>
+            <span class="px-3 py-1 bg-gray-100 text-[10px] uppercase tracking-wider font-bold text-gray-600 rounded-full">Competitor Audit</span>
+          </div>
+        </div>
+
+        <div class="md:col-span-8 space-y-12">
+          
+          <div class="flex flex-col md:flex-row gap-6 border-t border-gray-100 pt-8 reveal-on-scroll delay-100">
+            <div class="w-12 text-2xl font-['Playfair_Display'] italic text-yellow-600">A</div>
+            <div>
+              <h3 class="text-xl font-bold mb-2">Defining the "Gold Standard"</h3>
+              <p class="text-gray-600 text-sm mb-4 leading-relaxed">
+                I sat down with the Business & Operations heads to deconstruct the brand DNA. We analyzed competitors (global luxury & indian ethnic) to identify gaps.
+                <br/><br/>
+                <strong>The Insight:</strong> Competitors focused on "Catalogues." We needed to focus on "Collections." The site had to feel like a curated art gallery, not a warehouse.
+              </p>
+            </div>
+          </div>
+
+          <div class="flex flex-col md:flex-row gap-6 border-t border-gray-100 pt-8 reveal-on-scroll delay-200">
+            <div class="w-12 text-2xl font-['Playfair_Display'] italic text-yellow-600">B</div>
+            <div>
+              <h3 class="text-xl font-bold mb-2">Shopify vs. Bespoke</h3>
+              <p class="text-gray-600 text-sm mb-4 leading-relaxed">
+                We chose Shopify for stability but I pushed the platform's limits. I designed custom liquid templates to break the "cookie-cutter" Shopify look, ensuring the navigation and PDPs felt uniquely branded while retaining backend robustness.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-24 px-6 bg-stone-50"> <div class="max-w-7xl mx-auto">
+      <div class="mb-20 text-center reveal-on-scroll">
+        <span class="font-mono text-xs text-yellow-600 uppercase tracking-widest block mb-4">02 • The Journey</span>
+        <h2 class="font-['Playfair_Display'] text-5xl md:text-6xl mb-6">The "Happy Path"</h2>
+        <p class="text-gray-500 max-w-xl mx-auto">Designing a seamless flow from discovery to ownership.</p>
+      </div>
+
+      <div class="space-y-32">
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center reveal-on-scroll delay-100">
+          <div class="relative group">
+             <div class="aspect-[3/4] bg-white shadow-2xl overflow-hidden relative border border-gray-200 p-2">
+                <img src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&q=80" class="absolute inset-0 w-full h-full object-cover opacity-90 transition-transform duration-700 group-hover:scale-105" />
+                <div class="absolute top-4 left-4 right-4 flex justify-between text-white text-[10px] uppercase tracking-widest font-bold z-10">
+                  <span>Samoh</span>
+                  <span>Menu</span>
+                </div>
+                <div class="absolute bottom-8 left-0 w-full text-center z-10">
+                  <span class="bg-white/90 text-black px-6 py-3 text-xs uppercase tracking-widest backdrop-blur-md">Shop The Collection</span>
+                </div>
+                <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/30"></div>
+             </div>
+          </div>
+          <div>
+            <h3 class="text-3xl font-['Playfair_Display'] italic mb-4">Visual Discovery</h3>
+            <p class="text-gray-600 leading-relaxed mb-6">
+              The Homepage isn't just banners; it's a mood board. I designed an intuitive navigation system that categorizes by "Occasion" (Wedding, cocktail, festive) rather than just "Kurtas" or "Sarees," aligning with the user's mental model.
+            </p>
+            <ul class="space-y-2 text-sm text-gray-500">
+              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-yellow-600 rounded-full"></span> Predictive Search</li>
+              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-yellow-600 rounded-full"></span> Mega-Menu Visuals</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center reveal-on-scroll delay-200">
+          <div class="md:order-2 relative group">
+             <div class="aspect-[3/4] bg-white shadow-2xl overflow-hidden relative border border-gray-200 p-2">
+                <img src="https://images.unsplash.com/photo-1583391733958-e0265af31a67?auto=format&fit=crop&q=80" class="absolute inset-0 w-full h-full object-cover opacity-90" />
+                <div class="absolute bottom-0 left-0 w-full bg-white p-6 border-t border-gray-100">
+                  <div class="flex justify-between items-center mb-4">
+                    <span class="font-['Playfair_Display'] text-xl italic">Silk Jamdani</span>
+                    <span class="font-bold">₹ 12,999</span>
+                  </div>
+                  <button class="w-full bg-black text-white py-3 text-xs uppercase tracking-widest">Add to Bag</button>
+                </div>
+             </div>
+          </div>
+          <div class="md:order-1">
+            <h3 class="text-3xl font-['Playfair_Display'] italic mb-4">Frictionless Luxury</h3>
+            <p class="text-gray-600 leading-relaxed mb-6">
+              The Product Detail Page (PDP) is the hero. I prioritized high-resolution zoom to show fabric texture. The "Add to Cart" sticky bar ensures conversion is never more than a thumb-tap away on mobile.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="py-24 px-6 bg-white border-t border-gray-100">
+    <div class="max-w-6xl mx-auto reveal-on-scroll">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+        <div>
+          <span class="font-mono text-xs text-yellow-600 uppercase tracking-widest block mb-4">03 • Retention</span>
+          <h2 class="font-bold text-3xl md:text-4xl mb-6 leading-tight">
+            Trust Beyond<br/> The Checkout.
+          </h2>
+          <p class="text-gray-600 mb-8 leading-relaxed">
+            Luxury isn't just buying; it's owning. I designed a comprehensive "My Account" ecosystem to reduce anxiety and build loyalty.
+          </p>
+          <ul class="space-y-4">
+            <li class="flex gap-4">
+              <div class="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center text-xs font-bold">1</div>
+              <div>
+                <strong class="block text-gray-900 text-sm">Granular Tracking</strong>
+                <p class="text-xs text-gray-500">Visual timeline of order status (Processing, Stitching, Shipped).</p>
+              </div>
+            </li>
+            <li class="flex gap-4">
+              <div class="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center text-xs font-bold">2</div>
+              <div>
+                <strong class="block text-gray-900 text-sm">Self-Serve Returns</strong>
+                <p class="text-xs text-gray-500">One-tap cancellation and refund wallet integration.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+        
+        <div class="bg-gray-50 p-8 rounded-xl border border-gray-100 relative shadow-lg">
+          <div class="space-y-4">
+            <div class="bg-white p-4 rounded shadow-sm flex gap-4 items-center">
+              <div class="w-12 h-12 bg-gray-200 rounded"></div>
+              <div class="flex-1">
+                <div class="h-2 w-24 bg-gray-200 rounded mb-2"></div>
+                <div class="h-2 w-16 bg-gray-100 rounded"></div>
+              </div>
+              <span class="text-[10px] text-green-600 font-bold bg-green-50 px-2 py-1 rounded">DELIVERED</span>
+            </div>
+            <div class="bg-white p-4 rounded shadow-sm flex gap-4 items-center opacity-60">
+              <div class="w-12 h-12 bg-gray-200 rounded"></div>
+              <div class="flex-1">
+                <div class="h-2 w-24 bg-gray-200 rounded mb-2"></div>
+                <div class="h-2 w-16 bg-gray-100 rounded"></div>
+              </div>
+              <span class="text-[10px] text-yellow-600 font-bold bg-yellow-50 px-2 py-1 rounded">TRANSIT</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-24 px-6 bg-neutral-900 text-white">
+    <div class="max-w-6xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-16 reveal-on-scroll">
+        <div>
+          <span class="font-mono text-xs text-yellow-500 uppercase tracking-widest block mb-6">04 • Leadership</span>
+          <h3 class="text-3xl font-['Playfair_Display'] italic mb-4">"The Pixel Police"</h3>
+          <p class="text-gray-400 text-sm leading-relaxed mb-6">
+            Designing it was half the battle. Building it right was the war. I led the QA (Quality Assurance) process, sitting with developers to fix padding, font-weights, and animation timings.
+          </p>
+          <p class="text-gray-400 text-sm leading-relaxed">
+            I managed the C-suite expectations, presenting weekly progress updates and justifying design decisions with competitive data, ensuring the vision remained undiluted.
+          </p>
+        </div>
+
+        <div>
+          <span class="font-mono text-xs text-yellow-500 uppercase tracking-widest block mb-6">05 • Business Impact</span>
+          <ul class="space-y-8">
+            <li class="flex gap-4 border-b border-white/10 pb-4">
+              <span class="text-4xl font-['Playfair_Display'] text-white">Live</span>
+              <div>
+                <h4 class="font-bold text-white">Revenue Generating</h4>
+                <p class="text-xs text-gray-500 mt-1">The site is live and processing orders daily.</p>
+              </div>
+            </li>
+            <li class="flex gap-4 border-b border-white/10 pb-4">
+              <span class="text-4xl font-['Playfair_Display'] text-white">100%</span>
+              <div>
+                <h4 class="font-bold text-white">Vision Match</h4>
+                <p class="text-xs text-gray-500 mt-1">Zero compromise on the "Luxury" aesthetic during dev handoff.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="py-32 bg-white text-center border-t border-gray-100">
+    <a href="/work/westside" class="group inline-block">
+      <span class="font-mono text-xs text-gray-500 uppercase tracking-widest mb-4 block group-hover:text-black transition-colors">Loop Back</span>
+      <h2 class="font-['Playfair_Display'] text-4xl md:text-6xl italic group-hover:underline decoration-1 underline-offset-8">
+        Return to <br/> Westside
+      </h2>
+    </a>
+  </div>
+
+</Layout>
