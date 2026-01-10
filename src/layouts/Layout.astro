@@ -28,7 +28,14 @@ const { title } = Astro.props;
 				</a>
 				<div class="flex gap-8 text-sm font-medium text-slate-600">
 					{['Work', 'About', 'Contact'].map((item) => (
-						<a href={item === 'Contact' ? '#footer' : `/${item.toLowerCase()}`} class="relative group py-1">
+						<a 
+                            href={
+                                item === 'Contact' ? '#footer' : 
+                                item === 'Work' ? '/#work' : 
+                                `/${item.toLowerCase()}`
+                            } 
+                            class="relative group py-1"
+                        >
 							<span class="group-hover:text-slate-900 transition-colors">{item}</span>
 							<span class="absolute bottom-0 left-0 w-0 h-0.5 bg-indigo-600 transition-all duration-300 group-hover:w-full"></span>
 						</a>
@@ -48,7 +55,7 @@ const { title } = Astro.props;
 					<div>
 						<h3 class="text-2xl font-bold mb-4 text-slate-900">Let's build something scalable.</h3>
 						<p class="text-slate-600 mb-6 max-w-sm">
-							Open to discussing design strategy, team leadership, and digital transformation.
+							Open to discussing design strategy, 0 to 1 scale, and digital transformation.
 						</p>
 						<a href="mailto:yatish.designer@gmail.com" class="text-lg font-bold text-indigo-600 border-b-2 border-transparent hover:border-indigo-600 transition-all">
 							yatish.designer@gmail.com
@@ -59,22 +66,39 @@ const { title } = Astro.props;
 						<span class="text-slate-400 text-sm uppercase tracking-wider font-bold text-[10px]">Connect</span>
 						
 						<div class="flex gap-3">
-							<a href="#" class="group flex items-center bg-slate-100 hover:bg-[#0077b5] hover:text-white px-3 py-3 rounded-full transition-all duration-300 ease-out overflow-hidden max-w-[48px] hover:max-w-[140px]">
-								<svg class="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-								<span class="opacity-0 group-hover:opacity-100 whitespace-nowrap ml-2 text-sm font-medium transition-opacity duration-300 delay-75">LinkedIn</span>
-							</a>
+    
+    <a 
+        href="https://www.linkedin.com/in/yatishshirsath" 
+        target="_blank" 
+        rel="noopener noreferrer" 
+        class="group flex items-center bg-slate-100 hover:bg-[#0077b5] hover:text-white px-3 py-3 rounded-full transition-all duration-300 ease-out overflow-hidden max-w-[48px] hover:max-w-[140px]"
+    >
+        <svg class="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+        <span class="opacity-0 group-hover:opacity-100 whitespace-nowrap ml-2 text-sm font-medium transition-opacity duration-300 delay-75">LinkedIn</span>
+    </a>
 
-							<a href="#" class="group flex items-center bg-slate-100 hover:bg-[#1769ff] hover:text-white px-3 py-3 rounded-full transition-all duration-300 ease-out overflow-hidden max-w-[48px] hover:max-w-[140px]">
-								<svg class="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M22 7h-7v-2h7v2zm1.726 10c-.442 1.297-2.029 3-5.187 3-4.013 0-6.911-2.734-6.911-7.076 0-3.793 2.502-7.465 7.152-7.465 3.012 0 4.904 1.344 5.918 3.571l-2.617 1.309c-.588-1.257-1.528-1.789-2.92-1.789-1.996 0-3.693 1.378-3.693 4.385 0 2.85 1.77 4.298 3.754 4.298 1.489 0 2.455-.788 2.812-1.898h-3.033v-3.328h6.725v4.993zm-13.682-3.834c.162-2.138 2.072-3.166 4.316-3.166 1.789 0 3.039.699 3.039 2.553 0 1.272-.942 2.222-2.274 2.41 1.705.291 3.064 1.439 3.064 3.323 0 2.653-2.316 3.714-4.846 3.714-3.003 0-5.409-1.392-5.409-4.825 0-1.714 1.125-2.996 2.11-4.009zm2.469 3.234h-2.106c-.198 1.742 1.396 1.956 2.052 1.956 1.139 0 1.977-.452 1.977-1.551 0-1.428-1.472-1.428-1.923-1.405zm1.727-4.856c0-.98-.718-1.574-1.879-1.574-1.282 0-2.003.882-2.031 1.574h3.91z"/></svg>
-								<span class="opacity-0 group-hover:opacity-100 whitespace-nowrap ml-2 text-sm font-medium transition-opacity duration-300 delay-75">Behance</span>
-							</a>
+    <a 
+        href="https://www.behance.net/yatish1" 
+        target="_blank" 
+        rel="noopener noreferrer" 
+        class="group flex items-center bg-slate-100 hover:bg-[#1769ff] hover:text-white px-3 py-3 rounded-full transition-all duration-300 ease-out overflow-hidden max-w-[48px] hover:max-w-[140px]"
+    >
+        <svg class="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M22 7h-7v-2h7v2zm1.726 10c-.442 1.297-2.029 3-5.187 3-4.013 0-6.911-2.734-6.911-7.076 0-3.793 2.502-7.465 7.152-7.465 3.012 0 4.904 1.344 5.918 3.571l-2.617 1.309c-.588-1.257-1.528-1.789-2.92-1.789-1.996 0-3.693 1.378-3.693 4.385 0 2.85 1.77 4.298 3.754 4.298 1.489 0 2.455-.788 2.812-1.898h-3.033v-3.328h6.725v4.993zm-13.682-3.834c.162-2.138 2.072-3.166 4.316-3.166 1.789 0 3.039.699 3.039 2.553 0 1.272-.942 2.222-2.274 2.41 1.705.291 3.064 1.439 3.064 3.323 0 2.653-2.316 3.714-4.846 3.714-3.003 0-5.409-1.392-5.409-4.825 0-1.714 1.125-2.996 2.11-4.009zm2.469 3.234h-2.106c-.198 1.742 1.396 1.956 2.052 1.956 1.139 0 1.977-.452 1.977-1.551 0-1.428-1.472-1.428-1.923-1.405zm1.727-4.856c0-.98-.718-1.574-1.879-1.574-1.282 0-2.003.882-2.031 1.574h3.91z"/></svg>
+        <span class="opacity-0 group-hover:opacity-100 whitespace-nowrap ml-2 text-sm font-medium transition-opacity duration-300 delay-75">Behance</span>
+    </a>
 
-							<a href="#" class="group flex items-center bg-slate-100 hover:bg-[#ea4c89] hover:text-white px-3 py-3 rounded-full transition-all duration-300 ease-out overflow-hidden max-w-[48px] hover:max-w-[140px]">
-								<svg class="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M12 24c6.627 0 12-5.373 12-12s-5.373-12-12-12-12 5.373-12 12 5.373 12 12 12zm6.591-15.556c-3.667 1.924-5.355 3.39-6.858 5.313 2.48 2.503 5.203 3.176 6.704 3.253.308-1.039.49-2.13.513-3.272-.116-.174-.235-.348-.359-.524-.001-.001-.001 0 0 0zm-1.803-1.53c-1.311.045-2.735.344-4.14 1.164-1.309-1.294-2.274-3.08-2.611-4.786 1.848-.303 3.738-.28 5.234.195.553 1.056 1.066 2.193 1.517 3.427zm-7.668-3.327c.451 1.787 1.488 3.512 2.87 4.77-1.74 1.636-4.045 2.544-6.392 2.379.13-2.997 1.635-5.698 3.522-7.149zm-4.755 8.914c2.516.324 4.965-.63 6.852-2.308.887 1.127 1.621 2.385 2.152 3.743-2.585.877-5.91 1.054-8.156.402.164-1.488.164-1.071-.848-1.837zm9.648 3.917c-.571-1.428-1.332-2.753-2.261-3.929 2.107-.936 4.779-1.318 7.339-1.026.046.368.08.742.08 1.122 0 3.321-1.353 6.326-3.526 8.455-.494-1.72-1.036-3.155-1.632-4.622z"/></svg>
-								<span class="opacity-0 group-hover:opacity-100 whitespace-nowrap ml-2 text-sm font-medium transition-opacity duration-300 delay-75">Dribbble</span>
-							</a>
-						</div>
-						<p class="text-slate-400 text-xs mt-8">© 2025 Yatish Shirsath. Vibe-coded.</p>
+    <a 
+        href="https://dribbble.com/TheYatish" 
+        target="_blank" 
+        rel="noopener noreferrer" 
+        class="group flex items-center bg-slate-100 hover:bg-[#ea4c89] hover:text-white px-3 py-3 rounded-full transition-all duration-300 ease-out overflow-hidden max-w-[48px] hover:max-w-[140px]"
+    >
+        <svg class="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M12 24c6.627 0 12-5.373 12-12s-5.373-12-12-12-12 5.373-12 12 5.373 12 12 12zm6.591-15.556c-3.667 1.924-5.355 3.39-6.858 5.313 2.48 2.503 5.203 3.176 6.704 3.253.308-1.039.49-2.13.513-3.272-.116-.174-.235-.348-.359-.524-.001-.001-.001 0 0 0zm-1.803-1.53c-1.311.045-2.735.344-4.14 1.164-1.309-1.294-2.274-3.08-2.611-4.786 1.848-.303 3.738-.28 5.234.195.553 1.056 1.066 2.193 1.517 3.427zm-7.668-3.327c.451 1.787 1.488 3.512 2.87 4.77-1.74 1.636-4.045 2.544-6.392 2.379.13-2.997 1.635-5.698 3.522-7.149zm-4.755 8.914c2.516.324 4.965-.63 6.852-2.308.887 1.127 1.621 2.385 2.152 3.743-2.585.877-5.91 1.054-8.156.402.164-1.488.164-1.071-.848-1.837zm9.648 3.917c-.571-1.428-1.332-2.753-2.261-3.929 2.107-.936 4.779-1.318 7.339-1.026.046.368.08.742.08 1.122 0 3.321-1.353 6.326-3.526 8.455-.494-1.72-1.036-3.155-1.632-4.622z"/></svg>
+        <span class="opacity-0 group-hover:opacity-100 whitespace-nowrap ml-2 text-sm font-medium transition-opacity duration-300 delay-75">Dribbble</span>
+    </a>
+
+</div>
+						<p class="text-slate-400 text-xs mt-8">© 2026 Yatish Shirsath. Vibe-coded.</p>
 					</div>
 				</div>
 			</div>
